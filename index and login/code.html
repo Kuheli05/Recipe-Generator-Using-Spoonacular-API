@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Share</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #ffffff;
+        }
+
+        #loginPage {
+            background-image: url('login.jpg');
+        }
+
+        .form-container {
+            background: rgba(40, 122, 237, 0.598);
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin-bottom: 2px;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #629ec4;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .image-item {
+            text-align: left;
+            margin-right: 50px;
+            margin-bottom: 20px; /* Adjusted margin bottom */
+        }
+
+        .image-item img {
+            max-width: 200px; /* Adjusted image width */
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-style: italic;
+            text-align: left;
+        }
+
+        #backToLogin {
+            position: fixed;
+            width: 100px;
+            top: 20px;
+            right: 20px;
+            background-color: #629ec4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body id="postPage">
+    <div id="uploadForm" class="form-container">
+        <h2>Share your own recipes! </h2>
+        <input type="file" id="imageFile">
+        <input type="text" id="userName" placeholder="Your Name">
+        <input type="text" id="caption" placeholder="Description">
+        <button onclick="uploadImage()">Upload</button>
+    </div>
+
+    <div class="gallery-container">
+        <h2>Shared Chats</h2>
+        <div class="image-gallery" id="imageGallery">
+            <div class="image-item">
+                <img src="example1.jpg" alt="Example Image">
+                <p class="description">Delicious pasta with creamy sauce.</p>
+            </div>
+            <div class="image-item">
+                <img src="example2.jpg" alt="Example Image">
+                <p class="description">Healthy salad with fresh vegetables.</p>
+            </div>
+            <div class="image-item">
+                <img src="example3.jpg" alt="Example Image">
+                <p class="description">Homemade pizza with assorted toppings.</p>
+            </div>
+            <div class="image-item">
+                <img src="example4.jpg" alt="Example Image">
+                <p class="description">Decadent chocolate cake with raspberry filling.</p>
+            </div>
+            <!-- Add more image items as needed -->
+        </div>
+    </div>
+
+    <button id="backToLogin" onclick="backToLogin()">Back to Login</button>
+
+    <script>
+        function backToLogin() {
+            window.location.href = "home.html"; // Replace "login.html" with your actual login page URL
+        }
+
+        function uploadImage() {
+            const imageFile = document.getElementById('imageFile').files[0];
+            const userName = document.getElementById('userName').value;
+            const caption = document.getElementById('caption').value;
+
+            if (!imageFile || !userName || !caption) {
+                console.error('Please select an image, enter your name, and provide a caption');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const imageSrc = event.target.result;
+                const imageItem = document.createElement('div');
+                imageItem.classList.add('image-item');
+                imageItem.innerHTML = `
+                    <img src="${imageSrc}" alt="Uploaded Image">
+                    <p class="description">${caption}</p>
+                    <p class="posted-by">Posted by ${userName}</p>
+                `;
+                document.getElementById('imageGallery').appendChild(imageItem);
+            };
+            reader.readAsDataURL(imageFile);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #f3efef; /* Changed text color */
+            text-align: justify; /* Center align all text */
+        }
+
+        .hero {
+            background-image: url('home.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px; /* Decreased font size */
+            margin-bottom: 25px; /* Decreased margin */
+            color: rgb(255, 255, 255);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px; /* Added margin bottom to separate buttons from text */
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #f59043;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ef7731;
+        }
+
+        .link-text {
+            font-size: 18px;
+            text-decoration: underline;
+            cursor: pointer;
+            color: #52b8e3; /* Changed link text color */
+            transition: color 0.3s;
+        }
+
+        .link-text:hover {
+            color: #155990; /* Changed link text color on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="container">
+        <h1>A Quest for Zest</h1>
+        <p>Welcome!</p>
+        <div class="btn-container">
+            <a href="index.html" class="btn">Log In</a>
+            <a href="http://localhost:3000" class="btn">Search Recipes</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <span class="link-text" onclick="window.location.href='index.ejs';">Show me recipes!</span>
+    <p>Unleash your culinary creativity and join the culinary adventure of a lifetime! Share your own recipes and tantalize taste buds with your culinary masterpieces. From mouthwatering meals to delectable desserts, showcase your flair for flavor and let your creations inspire others</p>
+    <span class="link-text" onclick="window.location.href='index.html';">I want to share my own recipes!</span>
+    <p>Dive into a world of culinary innovation and exploration! Discover new creative recipes that will ignite your senses and elevate your culinary repertoire to new heights. From exotic flavors to daring combinations, embark on an exhilarating journey of taste and adventure.</p>
+    <p>About Us</p>
+    <p>We're passionate food enthusiasts dedicated to sharing delicious recipes and inspiring culinary adventures. Join us on our quest for zest!</p>
+
+</body>
+</html>
